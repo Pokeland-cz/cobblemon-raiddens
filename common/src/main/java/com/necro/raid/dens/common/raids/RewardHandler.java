@@ -50,6 +50,7 @@ public class RewardHandler {
 
         Pokemon pokemon = this.cachedReward == null ? this.raidBoss.getRewardPokemon(this.player) : this.cachedReward;
         pokemon.setCaughtBall(pokeBallItem.getPokeBall());
+        pokemon.getPersistentData().putBoolean("breedable", false);
         PlayerExtensionsKt.party(player).add(pokemon);
         this.player.getMainHandItem().consume(1, this.player);
 
